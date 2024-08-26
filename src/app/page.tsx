@@ -1,5 +1,7 @@
+import AuthScreen from '@/features/auth/components/auth-screen'
+
 const HomePage = () => {
-	return <div>HomePage</div>
+	return <AuthScreen />
 }
 
 export default HomePage
