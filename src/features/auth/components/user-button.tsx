@@ -8,9 +8,12 @@ import {
 	DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 import { useCurrentUser } from '@/features/auth/hooks/use-current-user'
-import { Loader2Icon } from 'lucide-react'
+import { useAuthActions } from '@convex-dev/auth/react'
+import { Loader2Icon, LogOutIcon } from 'lucide-react'
 
 const UserButton = () => {
+	const { signOut } = useAuthActions()
+
 	const { data, isLoading } = useCurrentUser()
 
 	if (isLoading) {
@@ -34,7 +37,10 @@ const UserButton = () => {
 				</Avatar>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align='center' side='right' className='w-60'>
-				<DropdownMenuItem></DropdownMenuItem>
+				<DropdownMenuItem onClick={signOut}>
+					<LogOutIcon className='size-4 mr-2' />
+					Log Out
+				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	)
