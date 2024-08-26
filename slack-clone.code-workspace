@@ -5,6 +5,6 @@
 		}
 	],
 	"settings": {
-		"cSpell.words": ["codegen", "Nextjs", "typecheck"]
+		"cSpell.words": ["codegen", "Nextjs", "trpc", "typecheck"]
 	}
 }
