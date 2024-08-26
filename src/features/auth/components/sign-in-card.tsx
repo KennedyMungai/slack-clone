@@ -21,11 +21,13 @@ type Props = {
 const SignInCard = ({ setState }: Props) => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
+	const [pending, setPending] = useState(false)
 
 	const { signIn } = useAuthActions()
 
 	const onProviderSignIn = (value: 'github' | 'google') => {
-		signIn(value)
+		setPending(true)
+		signIn(value).finally(() => setPending(false))
 	}
 
 	return (
@@ -39,7 +41,7 @@ const SignInCard = ({ setState }: Props) => {
 			<CardContent className='space-y-5 px-0 pb-0'>
 				<form action='' className='space-y-2.5'>
 					<Input
-						disabled={false}
+						disabled={pending}
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						placeholder='Email'
@@ -47,7 +49,7 @@ const SignInCard = ({ setState }: Props) => {
 						required
 					/>
 					<Input
-						disabled={false}
+						disabled={pending}
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						placeholder='Password'
@@ -58,7 +60,7 @@ const SignInCard = ({ setState }: Props) => {
 						type='submit'
 						className='w-full'
 						size='lg'
-						disabled={false}
+						disabled={pending}
 					>
 						Continue
 					</Button>
@@ -66,7 +68,7 @@ const SignInCard = ({ setState }: Props) => {
 				<Separator />
 				<div className='flex flex-col gap-y-2 5'>
 					<Button
-						disabled={false}
+						disabled={pending}
 						onClick={() => onProviderSignIn('google')}
 						variant={'outline'}
 						size={'lg'}
@@ -76,7 +78,7 @@ const SignInCard = ({ setState }: Props) => {
 						Continue with Google
 					</Button>
 					<Button
-						disabled={false}
+						disabled={pending}
 						onClick={() => onProviderSignIn('github')}
 						variant={'outline'}
 						size={'lg'}
