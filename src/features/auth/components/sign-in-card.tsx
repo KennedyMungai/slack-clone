@@ -24,7 +24,7 @@ const SignInCard = ({ setState }: Props) => {
 
 	const { signIn } = useAuthActions()
 
-	const handleProviderSignIn = (value: 'github' | 'google') => {
+	const onProviderSignIn = (value: 'github' | 'google') => {
 		signIn(value)
 	}
 
@@ -67,7 +67,7 @@ const SignInCard = ({ setState }: Props) => {
 				<div className='flex flex-col gap-y-2 5'>
 					<Button
 						disabled={false}
-						onClick={() => {}}
+						onClick={() => onProviderSignIn('google')}
 						variant={'outline'}
 						size={'lg'}
 						className='w-full relative'
@@ -77,7 +77,7 @@ const SignInCard = ({ setState }: Props) => {
 					</Button>
 					<Button
 						disabled={false}
-						onClick={() => handleProviderSignIn('github')}
+						onClick={() => onProviderSignIn('github')}
 						variant={'outline'}
 						size={'lg'}
 						className='w-full relative'
