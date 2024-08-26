@@ -5,6 +5,13 @@
 		}
 	],
 	"settings": {
-		"cSpell.words": ["codegen", "Nextjs", "signin", "trpc", "typecheck"]
+		"cSpell.words": [
+			"codegen",
+			"lucide",
+			"Nextjs",
+			"signin",
+			"trpc",
+			"typecheck"
+		]
 	}
 }
