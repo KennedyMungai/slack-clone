@@ -21,7 +21,7 @@ const UserButton = () => {
 
 	if (!data) return null
 
-	const { image, name, email } = data
+	const { image, name } = data
 
 	return (
 		<DropdownMenu modal={false}>
