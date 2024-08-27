@@ -2,6 +2,6 @@ import { atom, useAtom } from 'jotai'
 
 const modalState = atom(false)
 
-const useCreateWorkspaceModal = () => {
+export const useCreateWorkspaceModal = () => {
 	return useAtom(modalState)
 }
