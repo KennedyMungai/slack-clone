@@ -28,5 +28,5 @@ export const useCreateWorkspace = () => {
 		[mutation]
 	)
 
-	return mutate
+	return { mutate }
 }
