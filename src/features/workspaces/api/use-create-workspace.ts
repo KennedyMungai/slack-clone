@@ -2,7 +2,7 @@ import { useMutation } from 'convex/react'
 import { useCallback } from 'react'
 import { api } from '../../../../convex/_generated/api'
 
-type RequestType = any
+type RequestType = { name: string }
 type ResponseType = any
 
 type Options = {
